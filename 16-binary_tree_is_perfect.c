@@ -47,25 +47,12 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	int node = 0, left, right;
-
 	if (!tree)
+		return (1);
+
+	if ((!tree->left && tree->right) || (tree->left && !tree->right))
 		return (0);
-
-	if (tree->left)
-		left = 0 ^ binary_tree_is_full(tree->left);
-	else
-		left = 1;
-
-	if (tree->right)
-		right = 0 ^ binary_tree_is_full(tree->right);
-	else
-		right = 1;
-
-	if ((!tree->left && !tree->right) || (tree->left && tree->right))
-		node = left & right;
-
-	return (node);
+	return (binary_tree_is_full(tree->left) & binary_tree_is_full(tree->right));
 }
 
 /**
