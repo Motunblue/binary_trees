@@ -2,7 +2,7 @@
 
 /**
  * binary_tree_sibling - finds the sibling of a node
- * @tree: pointer to the node to find the sibling
+ * @node: pointer to the node to find the sibling
  *
  * Return: sibling's node on success, NULL otherwise
  */
@@ -16,13 +16,13 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 		if ((temp->left) == node)
 		{
 			if (temp->right)
-				return temp->right;
+				return (temp->right);
 		}
 		else if ((temp->right) == node)
 		{
-			if (temp->left) 
-				return temp->left;
+			if (temp->left)
+				return (temp->left);
 		}
 	}
-	return NULL;
-}		
+	return (NULL);
+}
